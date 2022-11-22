@@ -1,0 +1,33 @@
+/*
+Given a signed 32-bit intger x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2 raised to the power 31, (2 raied to the power of 31 - 1)], then return 0.
+
+I/P : x = 123,      I/P : x = -123,             I/P : x = 1245367
+O/P = 321,          O/P = -321,                 O/P = 0
+*/
+
+#include<iostream.h>
+using namespace std;
+
+int main() {
+    
+    int x;
+    cin >> x;
+    
+    int ans = 0;
+    
+    while(x != 0) {
+        
+        int digit = x % 10;
+        
+        if((ans > INT_MAX/10) || (ans < INT_MIN/10)) {
+            
+            cout << "0";
+            
+        }
+        
+        ans = (ans * 10) + digit;
+        x = x / 10;
+    
+    }
+
+}
